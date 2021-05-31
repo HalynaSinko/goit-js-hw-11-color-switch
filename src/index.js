@@ -33,8 +33,7 @@ function onStartClick(e) {
 
 function onStopClick() {
   refs.srart.disabled = false;
-  // console.log('Клик на кнопку Стоп');
- 
+  // console.log('Клик на кнопку Стоп'); 
   clearInterval(intervalColorSwitchId);
 
   refs.stop.removeEventListener('click', onStopClick);
@@ -43,6 +42,7 @@ function onStopClick() {
 function colorSwitch() {
   refs.body.style.backgroundColor =
     colors[randomIntegerFromInterval(0, colors.length - 1)];
+  // console.log(colors[randomIntegerFromInterval(0, colors.length - 1)]);
 };
 
 // функция для генерации случайного числа
