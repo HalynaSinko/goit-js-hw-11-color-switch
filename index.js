@@ -1,14 +1,14 @@
 import { colors } from './colors.js';
 
 const refs = {
-  srart: document.querySelector('[data-action="start"]'),
+  start: document.querySelector('[data-action="start"]'),
   stop: document.querySelector('[data-action="stop"]'),
   body: document.body,
 };
 
 let intervalColorSwitchId = null;
 
-refs.srart.addEventListener('click', onStartClick);
+refs.start.addEventListener('click', onStartClick);
 
 //При нажатии на кнопку Старт:
 //  - кнопка Старт стает не активной;
@@ -24,7 +24,7 @@ refs.srart.addEventListener('click', onStartClick);
 //  - с кнопки Стоп удаляем слушателя событий;
 
 function onStartClick(e) {
-  refs.srart.disabled = true;
+  refs.start.disabled = true;
   
   colorSwitch();
  
@@ -35,7 +35,7 @@ function onStartClick(e) {
 }
 
 function onStopClick() {
-  refs.srart.disabled = false;
+  refs.start.disabled = false;
   // console.log('Клик на кнопку Стоп'); 
   clearInterval(intervalColorSwitchId);
 
