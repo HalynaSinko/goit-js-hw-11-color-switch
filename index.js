@@ -15,10 +15,12 @@ refs.srart.addEventListener('click', onStartClick);
 //  - меняем бекграунд боди на рандомный в первую секунду;
 //  - запускаем интервал для рандомного изменения бекграунда боди каждую последующею секунду;
 //  - на кнопку Стоп добавляем слушателя событий;
+//  - c кнопки Старт снимаем слушателя сбытий.
 
 //При нажатии на Стоп :
 //  - останавливается интервал изменения бекграунда;
 //  - кнопка Старт стает активной;
+//  - на кнопку Старт добавляем слушателя сбытий;
 //  - с кнопки Стоп удаляем слушателя событий;
 
 function onStartClick(e) {
@@ -29,6 +31,7 @@ function onStartClick(e) {
   intervalColorSwitchId = setInterval(colorSwitch, 1000);
   // console.log(colorSwitchId);
   refs.stop.addEventListener('click', onStopClick);
+  refs.start.removeEventListener('click', onStartClick);
 }
 
 function onStopClick() {
@@ -36,7 +39,8 @@ function onStopClick() {
   // console.log('Клик на кнопку Стоп'); 
   clearInterval(intervalColorSwitchId);
 
-  refs.stop.removeEventListener('click', onStopClick);
+  refs.start.addEventListener('click', onStartClick);
+  refs.stop.removeEventListener('click', onStopClick);  
 }
 
 function colorSwitch() {
